@@ -1,257 +1,172 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valentine Ultra - AYA</title>
+<title>Will you be my Valentine?</title>
 <style>
-body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #000;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #fff;
-  overflow: hidden;
-  position: relative;
-  transition: background-color 1s;
-}
-
-.container { text-align: center; z-index: 10; }
-
-h1 { font-size: 3rem; margin-bottom: 20px; animation: fadeIn 2s ease forwards; opacity: 0; }
-p { font-size: 1.3rem; margin-bottom: 30px; animation: fadeIn 3s ease forwards; opacity: 0; }
-
-button {
-  font-size: 1.3rem;
-  padding: 12px 25px;
-  margin: 0 15px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.05s ease;
-  z-index: 10;
-  position: relative;
-}
-
-#yesBtn {
-  background-color: #ff2d55;
-  color: #fff;
-  box-shadow: 0 0 15px #ff2d55;
-  animation: glow 1.5s infinite alternate;
-}
-
-@keyframes glow {
-  0% { box-shadow: 0 0 15px #ff2d55; transform: scale(1); }
-  50% { box-shadow: 0 0 30px #ff2d55; transform: scale(1.1); }
-  100% { box-shadow: 0 0 15px #ff2d55; transform: scale(1); }
-}
-
-#noBtn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #555;
-  color: #fff;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.hearts, .confetti {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  clip-path: polygon(50% 0%, 61% 15%, 75% 15%, 85% 25%, 85% 40%, 75% 55%, 50% 75%, 25% 55%, 15% 40%, 15% 25%, 25% 15%, 39% 15%);
-  animation: float 4s linear infinite;
-  opacity: 0.8;
-}
-
-.confetti {
-  background-color: yellow;
-  clip-path: none;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  animation: confettiFall 3s linear forwards;
-}
-
-@keyframes float {
-  0% { transform: translateY(0) rotate(0deg); opacity: 1;}
-  100% { transform: translateY(-700px) rotate(360deg); opacity: 0;}
-}
-
-@keyframes confettiFall {
-  0% {transform: translateY(0) rotate(0deg);}
-  100% {transform: translateY(800px) rotate(720deg);}
-}
-
-.full-screen-msg {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-size: 2rem;
-  color: #ff2d55;
-  z-index: 999;
-  display: none;
-  text-align: center;
-  animation: fadeIn 2s ease forwards;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(-20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-audio { display: none; }
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+  }
+  .container {
+    text-align: center;
+    z-index: 10;
+  }
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+  }
+  p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    animation: fadeIn 3s ease forwards;
+    opacity: 0;
+  }
+  button {
+    font-size: 1.3rem;
+    padding: 12px 25px;
+    margin: 0 15px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    position: relative;
+  }
+  #yesBtn {
+    background-color: #ff2d55;
+    color: #fff;
+    box-shadow: 0 0 15px #ff2d55;
+    animation: glow 1.5s infinite alternate;
+  }
+  @keyframes glow {
+    0% { box-shadow: 0 0 15px #ff2d55; transform: scale(1); }
+    50% { box-shadow: 0 0 30px #ff2d55; transform: scale(1.1); }
+    100% { box-shadow: 0 0 15px #ff2d55; transform: scale(1); }
+  }
+  #noBtn {
+    background-color: #555;
+    color: #fff;
+    position: relative;
+  }
+  .hearts {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    clip-path: polygon(50% 0%, 61% 15%, 75% 15%, 85% 25%, 85% 40%, 75% 55%, 50% 75%, 25% 55%, 15% 40%, 15% 25%, 25% 15%, 39% 15%);
+    animation: float 4s linear infinite;
+    opacity: 0.8;
+  }
+  @keyframes float {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1;}
+    100% { transform: translateY(-700px) rotate(360deg); opacity: 0;}
+  }
+  .full-screen-msg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 2rem;
+    color: #ff2d55;
+    z-index: 999;
+    display: none;
+    text-align: center;
+    animation: fadeIn 2s ease forwards;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  audio {
+    display: none;
+  }
 </style>
 </head>
 <body>
 
 <div class="container">
   <h1>AYA…</h1>
-  <p id="message">J’ai quelque chose à te demander ❤️</p>
-  <button id="yesBtn">Oui 💖</button>
-  <button id="noBtn">Non 😌</button>
+  <p id="message">I have something to ask you ❤️</p>
+  <button id="yesBtn">Yes 💖</button>
+  <button id="noBtn">No 😌</button>
 </div>
 
 <div class="full-screen-msg" id="finalMsg">
-  <p>Tu viens de rendre ma journée parfaite 💖</p>
-  <p>Joyeuse Saint-Valentin, AYA 🌹</p>
+  <p>You just made me the happiest person 💖</p>
+  <p>Happy Valentine's Day, AYA 🌹</p>
 </div>
 
 <audio id="bgMusic" loop>
   <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
 </audio>
-<audio id="heartSound">
-  <source src="https://freesound.org/data/previews/522/522481_12011325-lq.mp3" type="audio/mpeg">
-</audio>
 
 <script>
-const noBtn = document.getElementById('noBtn');
-const message = document.getElementById('message');
-const yesBtn = document.getElementById('yesBtn');
-const finalMsg = document.getElementById('finalMsg');
-const bgMusic = document.getElementById('bgMusic');
-const heartSound = document.getElementById('heartSound');
-const body = document.body;
+  const noBtn = document.getElementById('noBtn');
+  const message = document.getElementById('message');
+  const yesBtn = document.getElementById('yesBtn');
+  const finalMsg = document.getElementById('finalMsg');
+  const bgMusic = document.getElementById('bgMusic');
 
-const messagesFr = [
-  "Hey… ce n'est pas juste 😳",
-  "Allez AYA, tu connais la réponse 😉",
-  "Ne sois pas timide ❤️",
-  "Mon cœur commence à fatiguer 🥺",
-  "Dernière chance 😌",
-  "Il n’y a qu’une seule option 💕",
-  "Tu sais que c’est Oui 😏",
-  "Encore un peu de courage 💖",
-  "Mon cœur bat pour toi 🥰",
-  "Je savais que tu dirais Oui 😉",
-  "On est faits pour être ensemble 💘",
-  "Ne résiste pas 😍",
-  "Je t’attends… 💓",
-  "Tu es mon unique 💝",
-  "N’essaie même pas de cliquer Non 😂",
-  "Courage AYA… 💞",
-  "Tu es trop mignonne 😘",
-  "Oui est la seule réponse ❤️",
-  "Mon cœur te poursuit 🏃‍♂️💨",
-  "Ne me fais pas pleurer 😢",
-  "Juste un petit Oui 💖",
-  "Je sais que tu veux 😏",
-  "Mon cœur t’appelle 💌",
-  "Fais-moi plaisir 😉",
-  "Je t’adore 💘",
-  "Non n’existe pas 😎",
-  "Vite clique Oui 💖",
-  "Je t’attends depuis longtemps 🥰",
-  "Mon cœur est à toi ❤️",
-  "Impossible de dire Non 😅",
-  "Tu es mon soleil 🌞",
-  "Viens à moi 💓",
-  "Oui est magique ✨",
-  "N’hésite pas 😍",
-  "Tu es incroyable 💘",
-  "Viens vite 💌",
-  "Mon cœur bat pour toi 💖",
-  "Fais-moi confiance 😉",
-  "Oui… Oui… Oui 💓",
-  "Ne résiste pas 😏",
-  "Je t’aime 💖",
-  "N’essaye pas Non 😂",
-  "Cœur à prendre 💌",
-  "Fais-moi fondre 🥰",
-  "Viens vite AYA ❤️",
-  "Je t’attends 💓",
-  "C’est Oui ou rien 😉",
-  "Tu es unique 💘",
-  "Mon cœur est tien 💖",
-  "Allez clique Oui 😍"
-];
+  const messages = [
+    "Hey… that's not fair 😳",
+    "Come on AYA, you know the answer 😉",
+    "Don't be shy ❤️",
+    "My heart is getting tired 🥺",
+    "Okay okay… last chance 😌",
+    "There’s only one choice left 💕"
+  ];
 
-let attempt = 0;
+  let attempt = 0;
 
-bgMusic.volume = 0.2;
-bgMusic.play();
+  // Start background music
+  bgMusic.volume = 0.2;
+  bgMusic.play();
 
-setInterval(() => {
-  body.style.backgroundColor = hsl(${Math.random()*360},60%,10%);
-}, 3000);
+  noBtn.addEventListener('mouseover', () => {
+    if (attempt < messages.length - 1) {
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+      message.textContent = messages[attempt];
+      attempt++;
+    } else {
+      noBtn.style.display = 'none';
+      message.textContent = messages[messages.length - 1];
+    }
+  });
 
-function createHearts(count){
-  for(let i=0; i<count; i++){
-    const heart = document.createElement('div');
-    heart.classList.add('hearts');
-    heart.style.left = Math.random() * window.innerWidth + 'px';
-    heart.style.animationDuration = (2 + Math.random() * 3) + 's';
-    document.body.appendChild(heart);
-  }
-}
+  yesBtn.addEventListener('click', () => {
+    finalMsg.style.display = 'flex';
 
-function createConfetti(count){
-  for(let i=0; i<count; i++){
-    const conf = document.createElement('div');
-    conf.classList.add('confetti');
-    conf.style.left = Math.random() * window.innerWidth + 'px';
-    conf.style.backgroundColor = hsl(${Math.random()*360},70%,50%);
-    document.body.appendChild(conf);
-  }
-}
+    for (let i = 0; i < 40; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('hearts');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.animationDuration = (2 + Math.random() * 3) + 's';
+      document.body.appendChild(heart);
+    }
 
-function showFinal(){
-  finalMsg.style.display = 'flex';
-  createHearts(70);
-  createConfetti(150);
-  heartSound.play();
-}
-
-document.addEventListener('mousemove', e=>{
-  const rect = noBtn.getBoundingClientRect();
-  const dx = e.clientX - (rect.left + rect.width/2);
-  const dy = e.clientY - (rect.top + rect.height/2);
-  const dist = Math.sqrt(dx*dx + dy*dy);
-  if(dist < 200){ // يتحرك قبل ما توصل
-    const x = Math.random() * (window.innerWidth - rect.width);
-    const y = Math.random() * (window.innerHeight - rect.height);
-    noBtn.style.left = x + 'px';
-    noBtn.style.top = y + 'px';
-    message.textContent = messagesFr[attempt % messagesFr.length];
-    attempt++;
-  }
-});
-
-document.body.addEventListener('click', e=>{
-  if(e.target.id==='yesBtn'){
-    showFinal();
-  }
-});
+    // Optional: heartbeat effect on Yes
+    finalMsg.style.animation = 'fadeIn 1s ease forwards';
+  });
 </script>
 
 </body>
